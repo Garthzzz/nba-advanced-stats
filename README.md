@@ -11,7 +11,7 @@ BEBRM addresses key limitations in existing player impact metrics by combining:
 
 ## Key Features
 
-### 🎯 Multi-Source Data Integration
+###  Multi-Source Data Integration
 Unlike traditional metrics that rely heavily on box-score statistics, BEBRM incorporates:
 - Defensive matchup outcomes (opponent FG% when guarded, forced turnovers)
 - Hustle statistics (deflections, contested shots, screen assists, charges drawn)
@@ -19,7 +19,7 @@ Unlike traditional metrics that rely heavily on box-score statistics, BEBRM inco
 - Spatial shot tracking data (spacing metrics, offensive "gravity")
 - On/off efficiency splits
 
-### 📊 Two-Stage Modeling Approach
+###  Two-Stage Modeling Approach
 
 **Stage 1: Bayesian Baseline Prior**
 - Fits separate offensive and defensive regressions on multi-source features
@@ -31,12 +31,12 @@ Unlike traditional metrics that rely heavily on box-score statistics, BEBRM inco
 - Allocates residuals to players via ridge regression
 - Iterates multiple rounds to refine ratings based on lineup context
 
-### 🔄 Small-Sample Stability
+###  Small-Sample Stability
 - Players with limited minutes are automatically shrunk toward league average
 - Wide credible intervals signal uncertainty for small-sample players
 - Prevents overreaction to short hot/cold streaks
 
-### 📈 Uncertainty Quantification
+###  Uncertainty Quantification
 - Provides credible intervals for each player's rating
 - Distinguishes between confident estimates (veterans) and uncertain ones (rookies)
 - Enables more informed decision-making in front-office discussions
@@ -82,22 +82,6 @@ BEBRM requires access to multiple NBA data sources:
 - **Hustle stats**: Deflections, contested shots, etc. (available via NBA Stats API)
 - **Synergy data**: Play-type efficiencies (requires Synergy Sports subscription)
 - **Shot tracking**: Spatial shot data (available via NBA Stats API)
-
-## Project Structure
-
-```
-├── data/
-│   ├── raw/              # Raw data from NBA APIs
-│   └── processed/        # Cleaned feature matrices
-├── src/
-│   ├── features/         # Feature engineering from multiple sources
-│   ├── baseline/         # Bayesian baseline model
-│   ├── residual/         # Possession-level residual correction
-│   └── utils/            # Helper functions
-├── notebooks/            # Analysis notebooks
-├── paper/                # LaTeX source for methodology paper
-└── README.md
-```
 
 ## Limitations
 
